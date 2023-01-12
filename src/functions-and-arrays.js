@@ -1,19 +1,67 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a, b) {
+  if (a>b){
+    return a;
+  } else if (a<b){
+    return b;
+  } else {
+    return a;
+  }
+};
 
 
 
 // Iteration #2: Find longest word
+        // should declare a function named findLongestWord
+        // should return null when called with an empty array
+        // should return the word when called with a single-word array
+        // should return the first occurrence of the word when longest have multiple occurrences 
+        // should return the longest occurrence when it has multiple words
+
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+let longestWord = "";
 
-function findLongestWord() {}
-
+function findLongestWord(words) {
+  if (!words.length) { //check if the array is empty
+    return null;
+  }
+  let longestWord = words[0]; // the index sets the first word of the array as reference 
+  words.forEach(function(word) {
+    if (word.length > longestWord.length) {
+        longestWord = word;
+    }
+  });
+  return longestWord;
+};
 
 
 // Iteration #3: Calculate the sum
+
+    // should declare a function named sumNumbers
+
+    // should return zero if receives an empty array when called
+
+    // should return the sum with one number array
+
+    // should return zero if all elements are zero
+
+    // should return the sum when passed array of numbers
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  if (!numbers.length){
+    return 0;
+  } 
+  let sum = 0;
+  numbers.forEach(function(numb){
+    sum += numb;
+  });
+  return sum;
+};
+
+sumNumbers(numbers);
 
 
 
@@ -23,21 +71,117 @@ function sum() {}
 
 
 // Iteration #4: Calculate the average
+    // should declare a function named averageNumbers
+
+    // should return null if receives an empty array when called
+
+    // should return the average of a one-element array
+
+    // should return the average even with negative values
+
+    // should return the average of the array
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  if (!numbersAvg.length){
+    return null;
+  } 
+  let sum = 0;
+  numbersAvg.forEach(function(numb){
+    sum += numb;
+  });
+  let totalNumbers = numbersAvg.length;
+  let average = sum / totalNumbers;
+  return average;
+};
+
+averageNumbers(numbersAvg);
 
 
 // Level 2: Array of strings
+    // should declare a function named averageWordLength
+
+    // should return null if receives an empty array when called
+
+    // should return the average of a one-element array
+
+    // should return the average of a the array
+
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) { 
+    if(!wordsArr.length){
+    return null;
+  }
+
+let lengthArr =[];
+  wordsArr.forEach(word => lengthArr.push(word.length));
+
+let sumWordLength=0;
+  lengthArr.forEach(function(value){
+  sumWordLength += value;
+  })
+
+
+let totalNumbs = lengthArr.length;
+let averageWordLength = sumWordLength / totalNumbs;
+return averageWordLength;
+}
+
+console.log(averageWordLength(wordsArr));
+
+
+
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+
+    // should declare a function named avg
+
+    // should return null if receives an empty array when called
+
+    // should return the average of the array
+
+    
+function avg(arr) {
+  if (!arr.length) {
+    return null;
+  }
+  
+  let sumArr = 0;
+  let totalArrElements = arr.length;
+  
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === "number") {
+      sumArr += arr[i];
+    } else if (typeof arr[i] === "string") {
+      sumArr += arr[i].length;
+    }
+  }
+
+  let avgOfArr = sumArr / totalArrElements;
+  return avgOfArr;
+}
+
+console.log(avg([2, "hello", 6]));
+
+
+
+
+
 
 // Iteration #5: Unique arrays
+    // should declare a function named uniquifyArray
+
+    // should return null if receives an empty array when called
+
+    // should return the correct uniqified array when an array of the same elements passed as argument => remove the duplicates 
+
+    // should return the same array when no element is repeated
+
+    // should return the uniquified array
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -52,18 +196,65 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (!wordsUnique.length) {
+    return null;
+  }
 
+  let newArr = [];
+  wordsUnique.filter(function(item) {
+    if (newArr.indexOf(item) === -1) {
+      newArr.push(item);
+    }
+  });
+  return newArr;
+};
+
+
+uniquifyArray(wordsUnique);
 
 
 // Iteration #6: Find elements
+    // Find elements
+    //     should declare a function named doesWordExist
+    //     should return null if receives an empty array when called
+    //     should return true if the word we are looking for is the only one in the array
+    //     should return false if the word we are looking for is not in the array
+    //     should return true if the word we are looking for is in the array
+
+
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, word) {
+  if (!wordsFind.length){
+    return null;
+  }
+
+  if (wordsFind.includes(word)){
+    return true;
+  }
+
+  if(!wordsFind.includes(word)){
+    return false;
+  }
+}
+
+doesWordExist(wordsFind, "truth");
+
+
 
 
 
 // Iteration #7: Count repetition
+    // should declare a function named howManyTimes
+
+    // should return 0 (zero) if receives an empty array when called
+
+    // should return 1 (one) when the word appears only one time in the array
+
+    // should return 0 (zero) when the word doesn't appear in the array
+
+    // should return 5 (five) when the word appears 5 times in the array
 const wordsCount = [
   'machine',
   'matter',
@@ -78,7 +269,24 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, word) {
+  if (!wordsCount.length){
+    return 0;
+  }
+
+  let sumArr = 0;
+wordsCount.forEach(function(item){
+    if (item === word) {
+      sumArr ++;
+  };
+  return sumArr;
+}
+
+)};
+
+
+console.log(howManyTimes(wordsCount ,"matter"));
+
 
 
 
@@ -107,6 +315,12 @@ const matrix = [
 ];
 
 function greatestProduct() {}
+
+
+
+
+
+
 
 
 
